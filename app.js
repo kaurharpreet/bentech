@@ -9,17 +9,12 @@ app.listen(port, () => {
     console.log(`Server is running at: http://localhost:${process.env.PORT}`);
 });
 
-const initApp = () => {
-    // Test the connection.
-    try {
-        db.authenticate();
-        console.log("Connection has been established successfully.");    
-    } catch (error) {
-       console.error("Unable to connect to the database:", error.original);
-    }
- };
+// Test the connection.
+try {
+     db.authenticate();
+    console.log("Connection has been established successfully.");    
+} catch (error) {
+    console.error("Unable to connect to the database:", error.original);
+}
  
- /* Initialize the application. */
- initApp();
-
 module.exports = app;
