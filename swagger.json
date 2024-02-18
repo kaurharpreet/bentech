@@ -1,0 +1,665 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "operationId": "AuthController_login",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "authentication"
+        ]
+      }
+    },
+    "/api/auth/signup": {
+      "post": {
+        "operationId": "AuthController_signUp",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "authentication"
+        ]
+      }
+    },
+    "/api/client": {
+      "post": {
+        "operationId": "ClientController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClientDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "client"
+        ]
+      },
+      "get": {
+        "operationId": "ClientController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "client"
+        ]
+      }
+    },
+    "/api/client/{id}": {
+      "get": {
+        "operationId": "ClientController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "client"
+        ]
+      },
+      "patch": {
+        "operationId": "ClientController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateClientDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "client"
+        ]
+      },
+      "delete": {
+        "operationId": "ClientController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "client"
+        ]
+      }
+    },
+    "/api/service-request": {
+      "post": {
+        "operationId": "ServiceRequestController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceRequestDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "service-request"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "operationId": "ServiceRequestController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "service-request"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/service-request/{id}": {
+      "get": {
+        "operationId": "ServiceRequestController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "service-request"
+        ],
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/api/admin": {
+      "post": {
+        "operationId": "AdminController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAdminDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "operationId": "AdminController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/admin/{id}": {
+      "get": {
+        "operationId": "AdminController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "AdminController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAdminDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "AdminController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/lifter": {
+      "post": {
+        "operationId": "LifterController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLifterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        }
+      },
+      "get": {
+        "operationId": "LifterController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/lifter/{id}": {
+      "get": {
+        "operationId": "LifterController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "patch": {
+        "operationId": "LifterController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLifterDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "operationId": "LifterController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "BENTECH",
+    "description": "",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "LoginUserDto": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "kaur1234@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456789",
+            "description": "Minimum 8 characters password"
+          }
+        },
+        "required": [
+          "username",
+          "password"
+        ]
+      },
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "clientType": {
+            "type": "string",
+            "example": "lifter"
+          },
+          "name": {
+            "type": "string",
+            "example": "John Sharma"
+          },
+          "email": {
+            "type": "string",
+            "example": "john@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "12345678",
+            "description": "Minimum 8 characters required"
+          },
+          "contactNo": {
+            "type": "string",
+            "example": "989-999-9292"
+          }
+        },
+        "required": [
+          "clientType",
+          "name",
+          "email",
+          "password",
+          "contactNo"
+        ]
+      },
+      "CreateClientDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John"
+          },
+          "email": {
+            "type": "string",
+            "example": "xyz@gmail.com"
+          },
+          "contactNo": {
+            "type": "string",
+            "example": "998-222-9494"
+          },
+          "address": {
+            "type": "string",
+            "example": "plot no-123, phase 8"
+          },
+          "district": {
+            "type": "string",
+            "example": "mohali"
+          },
+          "state": {
+            "type": "string",
+            "example": "punjab"
+          },
+          "latitude": {
+            "type": "string",
+            "example": "56.646546"
+          },
+          "longitude": {
+            "type": "string",
+            "example": "23.565656"
+          },
+          "gstNo": {
+            "type": "string",
+            "example": "24fsd4321266"
+          },
+          "effluentType": {
+            "type": "string",
+            "example": "pickling | electroplating"
+          },
+          "effluentRate": {
+            "type": "number",
+            "example": "22"
+          },
+          "monthlyEffluentGenerated": {
+            "type": "string",
+            "example": "daily"
+          },
+          "storageTank": {
+            "type": "number",
+            "example": "7000"
+          },
+          "agreementStartDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "22-02-2024"
+          },
+          "agreementEndDate": {
+            "format": "date-time",
+            "type": "string",
+            "example": "21-02-2025"
+          },
+          "industryCategory": {
+            "type": "string",
+            "example": "green | red | yellow"
+          },
+          "securityDeposit": {
+            "type": "string",
+            "example": "pending | completed"
+          }
+        },
+        "required": [
+          "name",
+          "email",
+          "contactNo",
+          "address",
+          "district",
+          "state",
+          "latitude",
+          "longitude",
+          "gstNo",
+          "effluentType",
+          "effluentRate",
+          "monthlyEffluentGenerated",
+          "storageTank",
+          "agreementStartDate",
+          "agreementEndDate",
+          "industryCategory",
+          "securityDeposit"
+        ]
+      },
+      "UpdateClientDto": {
+        "type": "object",
+        "properties": {
+          "contactNo": {
+            "type": "string",
+            "example": "998-222-9494"
+          },
+          "address": {
+            "type": "string",
+            "example": "plot no-123, phase 8"
+          },
+          "district": {
+            "type": "string",
+            "example": "mohali"
+          },
+          "state": {
+            "type": "string",
+            "example": "punjab"
+          },
+          "latitude": {
+            "type": "string",
+            "example": "56.646546"
+          },
+          "longitude": {
+            "type": "string",
+            "example": "23.565656"
+          }
+        },
+        "required": [
+          "contactNo",
+          "address",
+          "district",
+          "state",
+          "latitude",
+          "longitude"
+        ]
+      },
+      "CreateServiceRequestDto": {
+        "type": "object",
+        "properties": {
+          "requestedTime": {
+            "format": "date-time",
+            "type": "string",
+            "example": "2024-02-13T18:26:59.000Z"
+          },
+          "requestedQty": {
+            "type": "number",
+            "example": "5000"
+          }
+        },
+        "required": [
+          "requestedTime",
+          "requestedQty"
+        ]
+      },
+      "CreateAdminDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "UpdateAdminDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateLifterDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "UpdateLifterDto": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  }
+}
